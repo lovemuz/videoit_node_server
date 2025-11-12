@@ -1,0 +1,37 @@
+{
+  "defaultSeverity": "error",
+  "extends": [
+    "tslint:recommended"
+  ],
+  "jsRules": {},
+  "rules": {
+    "comment-format": {
+      "severity": "warning"
+    },
+    "jsdoc-format": {
+      "severity": "warning"
+    },
+    "no-empty": {
+      "severity": "warning"
+    },
+    "no-shadowed-variable": {
+      "severity": "warning"
+    },
+    "no-trailing-whitespace": {
+      "severity": "warning",
+      "options": [
+        "ignore-template-strings"
+      ]
+    },
+    "object-literal-shorthand": {
+      "severity": "off"
+    },
+    "only-arrow-functions": {
+      "severity": "warning"
+    },
+    "prefer-const": {
+      "severity": "warning"
+    }
+  },
+  "rulesDirectory": []
+}

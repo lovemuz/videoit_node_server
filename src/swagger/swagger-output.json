@@ -1,0 +1,1562 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API description",
+    "description": "스웨거 자동생성",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:5050"
+    }
+  ],
+  "paths": {
+    "/group/title": {
+      "get": {
+        "tags": [
+          "Group"
+        ],
+        "description": "주소록 그륩명 가져오기",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/group/list": {
+      "get": {
+        "tags": [
+          "Group"
+        ],
+        "description": "주소록 목록 가져오기 , title - option ",
+        "parameters": [
+          {
+            "name": "pageNum",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "title",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "pageNum": {
+                    "example": 1
+                  },
+                  "pageSize": {
+                    "example": 10
+                  },
+                  "title": {
+                    "example": "전체"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/group/addGroupName": {
+      "post": {
+        "tags": [
+          "Group"
+        ],
+        "description": "주소록 그륩명 추가하기",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "example": "전체"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/group/addGroupInfo": {
+      "post": {
+        "tags": [
+          "Group"
+        ],
+        "description": "주소록 추가하기",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "example": [
+                      {
+                        "phone": "01012341234",
+                        "name": "이름"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/group/deleteName": {
+      "delete": {
+        "tags": [
+          "Group"
+        ],
+        "description": "주소록 그륩명 삭제하기",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "GroupNameId": {
+                    "example": 1
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/group/deleteInfo": {
+      "delete": {
+        "tags": [
+          "Group"
+        ],
+        "description": "주소록 삭제하기",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "GroupInfoId": {
+                    "example": 1
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/notice/detail": {
+      "get": {
+        "tags": [
+          "Notice"
+        ],
+        "description": "공지 내역 상세",
+        "parameters": [
+          {
+            "name": "NoticeId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "NoticeId": {
+                    "example": 1
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/notice/list": {
+      "get": {
+        "tags": [
+          "Notice"
+        ],
+        "description": "공지 내역",
+        "parameters": [
+          {
+            "name": "pageNum",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "NoticeId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "pageNum": {
+                    "example": 1
+                  },
+                  "pageSize": {
+                    "example": 10
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/notice/create": {
+      "post": {
+        "tags": [
+          "Notice"
+        ],
+        "description": "공지 작성 - 관리자",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "example": "제목"
+                  },
+                  "content": {
+                    "example": "내용"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/notice/update": {
+      "put": {
+        "tags": [
+          "Notice"
+        ],
+        "description": "공지 수정 - 관리자",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "NoticeId": {
+                    "example": 1
+                  },
+                  "title": {
+                    "example": "제목"
+                  },
+                  "content": {
+                    "example": "내용"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/notice/remove": {
+      "delete": {
+        "tags": [
+          "Notice"
+        ],
+        "description": "공지 삭제 - 관리자",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "NoticeId": {
+                    "example": 1
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/payment/total": {
+      "get": {
+        "tags": [
+          "Payment"
+        ],
+        "description": "결제 총 결제된 금액 - 관리자",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/payment/request": {
+      "post": {
+        "tags": [
+          "Payment"
+        ],
+        "description": "결제 요청",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "example": "결제이름"
+                  },
+                  "phone": {
+                    "example": "01099530959"
+                  },
+                  "email": {
+                    "example": "a@gmail.com"
+                  },
+                  "detail": {
+                    "example": "충전해주세요"
+                  },
+                  "point_amount": {
+                    "example": "충전 포인트"
+                  },
+                  "paid_amount": {
+                    "example": "결제 가격"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/payment/approve": {
+      "put": {
+        "tags": [
+          "Payment"
+        ],
+        "description": "결제 승인 - 관리자",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "PaymentId": {
+                    "example": 1
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/payment/refund-request": {
+      "put": {
+        "tags": [
+          "Payment"
+        ],
+        "description": "환불요청",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "PaymentId": {
+                    "example": 1
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/payment/refund-approve": {
+      "put": {
+        "tags": [
+          "Payment"
+        ],
+        "description": "환불승인 - 관리자",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "PaymentId": {
+                    "example": 1
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/payment/list": {
+      "get": {
+        "tags": [
+          "Payment"
+        ],
+        "description": "결제 리스트",
+        "parameters": [
+          {
+            "name": "pageNum",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "example": 1
+                  },
+                  "pageNum": {
+                    "example": 1
+                  },
+                  "pageSize": {
+                    "example": 10
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/payment/price": {
+      "get": {
+        "tags": [
+          "Payment"
+        ],
+        "description": "결제 비용 리스트",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/payment/list/admin": {
+      "get": {
+        "tags": [
+          "Payment"
+        ],
+        "description": "결제 리스트 - 관리자",
+        "parameters": [
+          {
+            "name": "pageNum",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "example": 1
+                  },
+                  "pageNum": {
+                    "example": 1
+                  },
+                  "pageSize": {
+                    "example": 10
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/point/": {
+      "get": {
+        "tags": [
+          "Point"
+        ],
+        "description": "내 포인트 가져오기",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/*": {
+      "get": {
+        "tags": [
+          "Route"
+        ],
+        "description": "리액트 경로 전달",
+        "parameters": [],
+        "responses": {
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/sms/list": {
+      "get": {
+        "tags": [
+          "Sms"
+        ],
+        "description": "문자 전송내역",
+        "parameters": [
+          {
+            "name": "pageNum",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "pageNum": {
+                    "example": 1
+                  },
+                  "pageSize": {
+                    "example": 10
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sms/send": {
+      "post": {
+        "tags": [
+          "Sms"
+        ],
+        "description": "문자 전송",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "example": 1
+                  },
+                  "content": {
+                    "example": "문자내용"
+                  },
+                  "reserve": {
+                    "example": 1
+                  },
+                  "reservedAt": {
+                    "example": "2023-06-10"
+                  },
+                  "sendList": {
+                    "example": [
+                      {
+                        "fromPhone": "01012341234",
+                        "toPhone": "01043214321"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/modify": {
+      "put": {
+        "tags": [
+          "User"
+        ],
+        "description": "유저 수정하기",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "nick": {
+                    "example": "이름"
+                  },
+                  "password": {
+                    "example": "1234"
+                  },
+                  "phone": {
+                    "example": "01012341234"
+                  },
+                  "address": {
+                    "example": "주소주소주소"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/joinLocal": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "description": "유저 회원가입",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "example": "a@gmail.com"
+                  },
+                  "password": {
+                    "example": "a"
+                  },
+                  "phone": {
+                    "example": "01012341234"
+                  },
+                  "nick": {
+                    "example": "hi"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/auth/renewal": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "description": "유저 토근 재발급",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "refreshtoken",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/user/loginLocal": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "description": "유저 로그인",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "example": "a@gmail.com"
+                  },
+                  "password": {
+                    "example": "a"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/logout": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "description": "유저 로그아웃",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "refreshToken": {
+                    "example": "a@gmail.com"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/Withdrawal": {
+      "delete": {
+        "tags": [
+          "User"
+        ],
+        "description": "유저 회원탈퇴",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/user/search": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "description": "유저 검색 - 관리자",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "keyword": {
+                    "example": "이름"
+                  },
+                  "pageNum": {
+                    "example": 1
+                  },
+                  "pageSize": {
+                    "example": 10
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/block": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "description": "유저 블락하기 - 관리자",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "UserId": {
+                    "example": 1
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/myInfo": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "description": "내 정보 가져오기 ",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/user/approve": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "description": "유저 승인하기 - 관리자",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "UserId": {
+                    "example": 1
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/findPassword": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "description": "비밀번호 찾기",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "example": "a@gmail.com"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/emailCertification": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "description": "이메일 인증",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "example": "a@gmail.com"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/list": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "description": "유저 목록 불러오기- 관리자",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "pageNum": {
+                    "example": 1
+                  },
+                  "pageSize": {
+                    "example": 10
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "in": "header",
+        "bearerFormat": "JWT"
+      }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    /* Language and Environment */
+    "target": "es2017",
+    "lib": ["es2019"],
+    "experimentalDecorators": true /* Enable experimental support for TC39 stage 2 draft decorators. */,
+    "emitDecoratorMetadata": true /* Emit design-type metadata for decorated declarations in source files. */,
+    /* Modules */
+    "module": "commonjs" /* Specify what module code is generated. */,
+    "rootDir": "./src" /* Specify the root folder within your source files. */,
+    "moduleResolution": "node" /* Specify how TypeScript looks up a file from a given module specifier. */,
+    "resolveJsonModule": true /* Enable importing .json files */,
+    /* JavaScript Support */
+    "allowJs": true /* Allow JavaScript files to be a part of your program. Use the `checkJS` option to get errors from these files. */,
+    "sourceMap": true /* Create source map files for emitted JavaScript files. */,
+    "outDir": "./dist" /* Specify an output folder for all emitted files. */,
+    "esModuleInterop": true /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables     
+    /* Type Checking */,
+    "strict": true /* Enable all strict type-checking options. */,
+
+    //typeorm의 컴파일 오류때문에 아래값을 false설정함.  모든 property에 ! 옵션처리로 해결 가능하나 이값을
+    "strictPropertyInitialization": false /* Check for class properties that are declared but not set in the constructor. */,
+
+    /* Completeness */
+    // "skipDefaultLibCheck": true,                      /* Skip type checking .d.ts files that are included with TypeScript. */
+    "skipLibCheck": true /* Skip type checking all .d.ts files. */
+  },
+  "exclude": ["node_modules", "dist", "obfuscated", "processes.config.js"]
+}
