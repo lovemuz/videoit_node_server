@@ -1,5 +1,6 @@
 import { logger } from "../../config/winston";
 const admin = require("firebase-admin");
+//const serviceAccount = require("../../../videoit-9c7f0-firebase-adminsdk-fbsvc-327ea9fc92.json");
 const serviceAccount = require("../../../videoit-9c7f0-8c067f9a2cb9.json");
 
 admin.initializeApp({
